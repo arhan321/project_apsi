@@ -2,10 +2,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
-      <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+      <div class="sidebar-brand-icon">
+        <i class="fas fa-building"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">KELOMPOK 9 PEMWEB</div>
+      <div class="sidebar-brand-text mx-3">PT UNTUNG TERUS</div>
     </a>
 
     <!-- Divider -->
@@ -211,8 +211,8 @@
      <!-- General settings -->
      <li class="nav-item">
         <a class="nav-link" href="{{route('settings')}}">
-            <i class="fas fa-cog"></i>
-            <span>Settings</span></a>
+            <i class="fas fa-shoe-prints"></i>
+            <span>Footer</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
