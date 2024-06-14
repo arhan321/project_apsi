@@ -4,6 +4,13 @@
 project bikin web tentang custommer goods
 
 ````
-# Freamwork laravel
+# Teknologi 
+
+```
+Freamwork Laravel
+
+php version 8.3
+
+```
 
 
