@@ -1,8 +1,9 @@
 @extends('frontend.layouts.master')
 
-@section('title','E-SHOP || About Us')
+@section('title', trans('frontend.side_title'))
 
 @section('main-content')
+    <!-- Isi konten utama -->
 
 	<!-- Breadcrumbs -->
 	<div class="breadcrumbs">
