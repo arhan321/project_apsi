@@ -162,15 +162,13 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        // unisharp
-        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
-        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Package Service Providers...
          */
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,9 +230,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        // unisharp
-        'Image' => Intervention\Image\Facades\Image::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+
+        /*
+         * Package Class Aliases...
+         */
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
