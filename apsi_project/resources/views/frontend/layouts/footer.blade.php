@@ -9,13 +9,13 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="index.html"><img src="{{asset('backend/img/logo2.png')}}" alt="#"></a>
+								<a href="/"><img src="{{asset('http://localhost:89/storage/photos/1/logo_toko/Screenshot 2024-06-20 012800.png')}}" alt="#"></a>
 							</div>
 							@php
 								$settings=DB::table('settings')->get();
 							@endphp
 							<p class="text">@foreach($settings as $data) {{$data->short_des}} @endforeach</p>
-							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">@foreach($settings as $data) {{$data->phone}} @endforeach</a></span></p>
+							<p class="call">Jika ada pertanyaan silahkan hubungi call center kami 24 jam<span><a href="tel:123456789">@foreach($settings as $data) {{$data->phone}} @endforeach</a></span></p>
 						</div>
 						<!-- End Single Widget -->
 					</div>
@@ -47,7 +47,7 @@
 						</div>
 						<!-- End Single Widget -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12">
+					{{-- <div class="col-lg-3 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer social">
 							<h4>Get In Tuch</h4>
@@ -63,7 +63,7 @@
 							<div class="sharethis-inline-follow-buttons"></div>
 						</div>
 						<!-- End Single Widget -->
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div>
@@ -74,13 +74,13 @@
 					<div class="row">
 						<div class="col-lg-6 col-12">
 							<div class="left">
-								<p>Copyright © {{date('Y')}} <a href="https://github.com/Prajwal100" target="_blank">Prajwal Rai</a>  -  All Rights Reserved.</p>
+								<p>Copyright © {{date('Y')}} <a href="https://github.com/arhan321" target="_blank">Arhan malik alrasyid</a>  -  All Rights Reserved.</p>
 							</div>
 						</div>
 						<div class="col-lg-6 col-12">
-							<div class="right">
+							{{-- <div class="right">
 								<img src="{{asset('backend/img/payments.png')}}" alt="#">
-							</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>

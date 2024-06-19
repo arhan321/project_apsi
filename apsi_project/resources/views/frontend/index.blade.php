@@ -144,8 +144,8 @@
                                                 @php
                                                     $after_discount=($product->price-($product->price*$product->discount)/100);
                                                 @endphp
-                                                <span>${{number_format($after_discount,2)}}</span>
-                                                <del style="padding-left:4%;">${{number_format($product->price,2)}}</del>
+                                                <span>Rp.{{number_format($after_discount,2)}}</span>
+                                                <del style="padding-left:4%;">Rp.{{number_format($product->price,2)}}</del>
                                             </div>
                                         </div>
                                     </div>
@@ -344,8 +344,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-rocket"></i>
-                    <h4>Free shiping</h4>
-                    <p>Orders over $100</p>
+                    <h4>Free ongkir</h4>
+                    <p>Jika order di atas Rp. 1.000.000</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -353,8 +353,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-reload"></i>
-                    <h4>Free Return</h4>
-                    <p>Within 30 days returns</p>
+                    <h4>Garansi</h4>
+                    <p>Jika barang tidak sesuai / Rusak bisa dilakukan garansi</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -362,8 +362,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-lock"></i>
-                    <h4>Sucure Payment</h4>
-                    <p>100% secure payment</p>
+                    <h4>pembayaran yang aman</h4>
+                    <p>100% masalah pembayaran akan kami rahasiakan</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -372,7 +372,7 @@
                 <div class="single-service">
                     <i class="ti-tag"></i>
                     <h4>Best Peice</h4>
-                    <p>Guaranteed price</p>
+                    <p>Harga dijamin Murahh!!!</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -447,11 +447,11 @@
                                         @php
                                             $after_discount=($product->price-($product->price*$product->discount)/100);
                                         @endphp
-                                        <h3><small><del class="text-muted">${{number_format($product->price,2)}}</del></small>    ${{number_format($after_discount,2)}}  </h3>
+                                        <h3><small><del class="text-muted">Rp.{{number_format($product->price,2)}}</del></small>    Rp.{{number_format($after_discount,2)}}  </h3>
                                         <div class="quickview-peragraph">
                                             <p>{!! html_entity_decode($product->summary) !!}</p>
                                         </div>
-                                        @if($product->size)
+                                        {{-- @if($product->size)
                                             <div class="size">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-12">
@@ -459,14 +459,14 @@
                                                         <select>
                                                             @php
                                                             $sizes=explode(',',$product->size);
-                                                            // dd($sizes);
+                                                            dd($sizes);
                                                             @endphp
                                                             @foreach($sizes as $size)
                                                                 <option>{{$size}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    {{-- <div class="col-lg-6 col-12">
+                                                    <div class="col-lg-6 col-12">
                                                         <h5 class="title">Color</h5>
                                                         <select>
                                                             <option selected="selected">orange</option>
@@ -474,10 +474,10 @@
                                                             <option>black</option>
                                                             <option>pink</option>
                                                         </select>
-                                                    </div> --}}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        @endif
+                                        @endif --}}
                                         <form action="{{route('single-add-to-cart')}}" method="POST" class="mt-4">
                                             @csrf
                                             <div class="quantity">

@@ -20,7 +20,7 @@
     </div>
     <!-- End Breadcrumbs -->
             
-    <!-- Shop Login -->
+    <!-- Shop Register -->
     <section class="shop login section">
         <div class="container">
             <div class="row"> 
@@ -71,11 +71,11 @@
                                 <div class="col-12">
                                     <div class="form-group login-btn">
                                         <button class="btn" type="submit">Register</button>
-                                        <a href="{{route('login.form')}}" class="btn">Login</a>
-                                        OR
-                                        <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
+                                        <span class="or-separator">OR</span>
+                                        <a href="{{route('login.form')}}" class="btn register-btn">Login</a>
+                                        {{-- <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
                                         <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
-                                        <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a>
+                                        <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
             </div>
         </div>
     </section>
-    <!--/ End Login -->
+    <!--/ End Register -->
 @endsection
 
 @push('styles')
@@ -113,6 +113,18 @@
     }
     .btn-google:hover{
         background:rgb(243, 26, 26) !important;
+    }
+    .login-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Adjust the gap as needed */
+    }
+    .or-separator {
+        margin: 0 10px; /* Adjust the margin as needed */
+        font-weight: bold;
+    }
+    .register-btn {
+        margin-left: 10px; /* Adjust the margin as needed */
     }
 </style>
 @endpush

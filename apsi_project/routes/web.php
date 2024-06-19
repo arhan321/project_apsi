@@ -17,6 +17,8 @@ use App\Http\Controllers\GooglessoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\NotificationController;
+// use App\Http\Controllers\GoogleUserSsoController;
+
 use App\Http\Controllers\ProductReviewController;
 
 Route::get('cache-clear', function () {
@@ -29,6 +31,9 @@ Route::get('storage-link',[AdminController::class,'storageLink'])->name('storage
 
 Route::get('auth/google', [GooglessoController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('auth/google/callback', [GooglessoController::class, 'handleGoogleCallback'])->name('google.callback');
+
+// Route::get('auth/google', [GoogleUserSsoController::class, 'redirectToGoogle'])->name('google.redirectuser');
+// Route::get('auth/google/callback', [GoogleUserSsoController::class, 'handleGoogleCallback'])->name('google.callbackuser');
 
 Auth::routes(['register' => false]);
 
@@ -108,7 +113,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::get('/file-manager', function () {
         return view('backend.layouts.file-manager');
     })->name('file-manager');
-
+ 
     Route::resource('users', 'UsersController');
     Route::resource('banner', 'BannerController');
     Route::resource('brand', 'BrandController');

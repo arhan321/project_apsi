@@ -53,13 +53,21 @@
                                 <div class="col-12">
                                     <div class="form-group login-btn">
                                         <button class="btn" type="submit">Login</button>
-                                        <a href="{{route('register.form')}}" class="btn">Register</a>
-                                        OR
-                                        <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
-                                        <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
-                                        <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a>
-
+                                        <span class="or-separator">OR</span>
+                                        <a href="{{route('register.form')}}" class="btn register-btn">Register</a>
                                     </div>
+                                    {{-- @if (session('error'))
+                                    <div class="alert alert-danger">
+                                         {{ session('error') }}
+                                    </div>
+                                    @endif
+                                    <div class="row mb-3 mt-4">
+                                    <div class="col-md-8 offset-md-0">
+                                        <a href="{{ route('google.redirectuser') }}">
+                                            <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png">
+                                        </a>
+                                    </div>
+                                </div> --}}
                                     <div class="checkbox">
                                         <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Remember me</label>
                                     </div>
@@ -103,6 +111,18 @@
     }
     .btn-google:hover{
         background:rgb(243, 26, 26) !important;
+    }
+    .login-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+    }
+    .or-separator {
+        margin: 0 10px; 
+        font-weight: bold;
+    }
+    .register-btn {
+        margin-left: 10px; 
     }
 </style>
 @endpush

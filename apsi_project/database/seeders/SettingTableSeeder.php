@@ -15,13 +15,13 @@ class SettingTableSeeder extends Seeder
     public function run()
     {
         $data = [
-            'description' => "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspiciatis unde sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspiciatis unde omnis iste natus error sit voluptatem Excepteu sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspiciatis Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspi deserunt mollit anim id est laborum. sed ut perspi.",
-            'short_des' => "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
-            'photo' => "image.jpg",
-            'logo' => 'logo.jpg',
-            'address' => "NO. 342 - London Oxford Street, 012 United Kingdom",
-            'email' => "eshop@gmail.com",
-            'phone' => "+060 (800) 801-582",
+            'description' => "pt untung terus adalah toko yang menyediakan barang barang kebutuhan manusia, dan berjualan makanan ringan, berkulitas tinggi dan harga terjangkau.",
+            'short_des' => "pt untung terus berjulann di daerah bitung, memiliki kantor yang bersih dan rapih, dan memiliki karyawan yang ramah dan sopan.",
+            'photo' => "http://localhost:89/storage/photos/1/logo_toko/Screenshot 2024-06-20 012800.png",
+            'logo' => 'http://localhost:89/storage/photos/1/logo_toko/Screenshot 2024-06-20 012800.png',
+            'address' => "bitung di dekat torabika, (pesaing pabrik torabika)",
+            'email' => "untungrugi@gmail.com",
+            'phone' => "082112121212",
         ];
 
         DB::table('settings')->insert($data);
