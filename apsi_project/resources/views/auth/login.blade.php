@@ -49,6 +49,13 @@
                                             Login
                                         </button>
                                     </form>
+                                    <div class="row mb-3 mt-4">
+                                        <div class="col-md-8 offset-md-0">
+                                            <a href="{{ route('google.redirect') }}">
+                                                <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png">
+                                            </a>
+                                        </div>
+                                    </div>
                                     <hr>
                                     <div class="text-center">
                                         @if (Route::has('password.request'))
