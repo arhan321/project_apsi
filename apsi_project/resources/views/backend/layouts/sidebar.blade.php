@@ -28,11 +28,11 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{route('file-manager')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Media Manager</span></a>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -72,7 +72,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse" aria-expanded="true" aria-controls="productCollapse">
           <i class="fas fa-cubes"></i>
-          <span>Products</span>
+          <span>inventaris</span>
         </a>
         <div id="productCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -140,8 +140,9 @@
     <!-- Posts -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCollapse" aria-expanded="true" aria-controls="postCollapse">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Posts</span>
+        <i class="fas fa-fw fa-blog"></i>
+        {{-- <i class="fa-solid fa-blog"></i> --}}
+        <span>Posts Blog</span>
       </a>
       <div id="postCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
@@ -211,8 +212,8 @@
      <!-- General settings -->
      <li class="nav-item">
         <a class="nav-link" href="{{route('settings')}}">
-            <i class="fas fa-shoe-prints"></i>
-            <span>Footer</span></a>
+          <i class="fas fa-cog"></i>
+            <span>settings</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->

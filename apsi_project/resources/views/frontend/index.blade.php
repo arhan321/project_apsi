@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','E-SHOP || HOME PAGE')
+@section('title', trans('frontend.side_title') . ' || ' . trans('frontend.home'))
 @section('main-content')
 <!-- Slider Area -->
 @if(count($banners)>0)
@@ -286,8 +286,8 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 no-padding">
                                     <div class="content">
-                                        <h4 class="title"><a href="#">{{$product->title}}</a></h4>
-                                        <p class="price with-discount">${{number_format($product->discount,2)}}</p>
+                                        <h4 class="title"><a href="#">{{ $product->title }}</a></h4>
+                                        <p class="price with-discount">Rp.{{number_format($product->price, 2, ',', '.')}}</p>
                                     </div>
                                 </div>
                                 </div>

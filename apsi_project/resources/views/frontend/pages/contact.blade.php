@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section('title', trans('frontend.side_title') . ' || ' . trans('frontend.contact'))
 @section('main-content')
 	<!-- Breadcrumbs -->
 	<div class="breadcrumbs">
@@ -108,7 +108,15 @@
 	<!-- Map Section -->
 	<div class="map-section">
 		<div id="myMap">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.857353934944!2d85.36529494999999!3d27.6952226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sne!2snp!4v1595323330171!5m2!1sne!2snp" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			<iframe 
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3137389273293!2d106.53980147514982!3d-6.222297460941563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fe06c47fc43d%3A0x1731dd4f56b3bc18!2sPT.%20Torabika%20Eka%20Semesta!5e0!3m2!1sen!2sid!4v1718873600772!5m2!1sen!2sid" 
+				width="100%" 
+				height="450" 
+				style="border:0;" 
+				allowfullscreen="" 
+				loading="lazy" 
+				referrerpolicy="no-referrer-when-downgrade">
+			</iframe>
 		</div>
 	</div>
 	<!--/ End Map Section -->

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost:89'),
+    'url' => env('APP_URL', 'https://apsi.djncloud.my.id'),
 
     'asset_url' => env('ASSET_URL', null),
 

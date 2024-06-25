@@ -13,5 +13,26 @@ return [
     |
     */
 
-    'side_title' => 'djony-apsi',
+    //backend
+    'dashboard' =>'DASHBOARD',
+
+
+    //frontend
+    'side_title' => 'PT untung terus',
+    'home' => 'HOME',
+    'About_us' => 'About-us',
+    'cart' => 'carts',
+    'checkout' => 'checkout',
+    'login' => 'login PAGE',
+    'register' => 'register PAGE',
+    'order_track' => 'order track',
+    'product' => 'Product',
+    'product_detail' => 'product-detail',
+    'product_grids' => 'product-grids',
+    'product_list' => 'product-list',
+    'register_' => 'Register',
+    'whistlist' => 'Whistlist',
+    'blog' => 'Blog',
+    'blog_detail' => 'Blog-detail',
+    'contact' => 'Contact',
 ];

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','E-TECH || Blog Detail page')
+@section('title', trans('frontend.side_title') . ' || ' . trans('frontend.blog'))
 
 @section('main-content')
     <!-- Breadcrumbs -->
