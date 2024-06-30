@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Brand;
-
 use Illuminate\Support\Str;
+
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -57,7 +57,6 @@ class ProductController extends Controller
             'child_cat_id'=>'nullable|exists:categories,id',
             'is_featured'=>'sometimes|in:1',
             'status'=>'required|in:active,inactive',
-            'condition'=>'required|in:default,new,hot',
             'price'=>'required|numeric',
             'discount'=>'nullable|numeric'
         ]);
@@ -134,14 +133,12 @@ class ProductController extends Controller
             'summary'=>'string|required',
             'description'=>'string|nullable',
             'photo'=>'string|required',
-            'size'=>'nullable',
             'stock'=>"required|numeric",
             'cat_id'=>'required|exists:categories,id',
             'child_cat_id'=>'nullable|exists:categories,id',
             'is_featured'=>'sometimes|in:1',
             'brand_id'=>'nullable|exists:brands,id',
             'status'=>'required|in:active,inactive',
-            'condition'=>'required|in:default,new,hot',
             'price'=>'required|numeric',
             'discount'=>'nullable|numeric'
         ]);

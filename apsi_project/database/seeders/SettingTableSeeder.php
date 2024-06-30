@@ -17,8 +17,8 @@ class SettingTableSeeder extends Seeder
         $data = [
             'description' => "pt untung terus adalah toko yang menyediakan barang barang kebutuhan manusia, dan berjualan makanan ringan, berkulitas tinggi dan harga terjangkau.",
             'short_des' => "pt untung terus berjulann di daerah bitung, memiliki kantor yang bersih dan rapih, dan memiliki karyawan yang ramah dan sopan.",
-            'photo' => "http://localhost:89/storage/photos/1/logo_toko/Screenshot 2024-06-20 012800.png",
-            'logo' => 'http://localhost:89/storage/photos/1/logo_toko/Screenshot 2024-06-20 012800.png',
+            'photo' => "https://apsi.djncloud.my.id/storage/photos/1/logo_toko/Screenshot 2024-06-20 012800.png",
+            'logo' => 'https://apsi.djncloud.my.id/storage/photos/1/logo_toko/Screenshot 2024-06-20 012800.png',
             'address' => "bitung di dekat torabika, (pesaing pabrik torabika)",
             'email' => "untungrugi@gmail.com",
             'phone' => "082112121212",

@@ -24,7 +24,6 @@
               <th>Is Featured</th>
               <th>Price</th>
               <th>Discount</th>
-              <th>Condition</th>
               <th>Brand</th>
               <th>Stock</th>
               <th>Photo</th>
@@ -40,7 +39,6 @@
               <th>Is Featured</th>
               <th>Price</th>
               <th>Discount</th>
-              <th>Condition</th>
               <th>Brand</th>
               <th>Stock</th>
               <th>Photo</th>
@@ -65,9 +63,8 @@
                       </sub>
                     </td>
                     <td>{{(($product->is_featured==1)? 'Yes': 'No')}}</td>
-                    <td>Rp. {{$product->price}} /-</td>
+                    <td>Rp. {{ number_format($product->price, 0, ',', '.') }} /-</td>
                     <td>  {{$product->discount}}% OFF</td>
-                    <td>{{$product->condition}}</td>
                     <td> {{ucfirst($product->brand->title)}}</td>
                     <td>
                       @if($product->stock>0)

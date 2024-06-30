@@ -164,8 +164,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
+						<h4>Free ongkir</h4>
+						<p>toko kita ada free ongkir</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -173,8 +173,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
-						<p>Within 30 days returns</p>
+						<h4>Garansi</h4>
+						<p>Jika barang tidak sesuai / Rusak bisa dilakukan garansi</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -182,8 +182,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-lock"></i>
-						<h4>Sucure Payment</h4>
-						<p>100% secure payment</p>
+						<h4>pembayaran yang aman</h4>
+						<p>100% masalah pembayaran akan kami rahasiakan</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -192,7 +192,7 @@
 					<div class="single-service">
 						<i class="ti-tag"></i>
 						<h4>Best Peice</h4>
-						<p>Guaranteed price</p>
+						<p>Harga dijamin Murahh!!!</p>
 					</div>
 					<!-- End Single Service -->
 				</div>

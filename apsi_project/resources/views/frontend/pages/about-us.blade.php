@@ -62,7 +62,7 @@
 					<div class="single-service">
 						<i class="ti-rocket"></i>
 						<h4>Free ongkir</h4>
-						<p>Jika order di atas Rp. 1.000.000</p>
+						<p>toko kita ada free ongkir</p>
 					</div>
 					<!-- End Single Service -->
 				</div>

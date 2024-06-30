@@ -63,12 +63,14 @@
         </div>
 
         <div class="form-group">
-          <label for="price" class="col-form-label">Price(NRS) <span class="text-danger">*</span></label>
-          <input id="price" type="number" name="price" placeholder="Enter price"  value="{{$product->price}}" class="form-control">
+          <label for="price" class="col-form-label">Price <span class="text-danger">*</span></label>
+          <input id="price" type="number" name="price" placeholder="Enter price" 
+              value="{{ old('price') ? number_format(old('price'), 0, ',', '.') : number_format($product->price, 0, ',', '.') }}" 
+              class="form-control">
           @error('price')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+      </div>
 
         <div class="form-group">
           <label for="discount" class="col-form-label">Discount(%)</label>
@@ -100,16 +102,6 @@
              @foreach($brands as $brand)
               <option value="{{$brand->id}}" {{(($product->brand_id==$brand->id)? 'selected':'')}}>{{$brand->title}}</option>
              @endforeach
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="condition">Condition</label>
-          <select name="condition" class="form-control">
-              <option value="">--Select Condition--</option>
-              <option value="default" {{(($product->condition=='default')? 'selected':'')}}>Default</option>
-              <option value="new" {{(($product->condition=='new')? 'selected':'')}}>New</option>
-              <option value="hot" {{(($product->condition=='hot')? 'selected':'')}}>Hot</option>
           </select>
         </div>
 

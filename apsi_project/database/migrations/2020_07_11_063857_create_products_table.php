@@ -21,7 +21,6 @@ class CreateProductsTable extends Migration
             $table->longText('description')->nullable();
             $table->text('photo');
             $table->integer('stock')->default(1);
-            $table->enum('condition',['default','new','hot'])->default('default');
             $table->enum('status',['active','inactive'])->default('inactive');
             $table->decimal('price', 15, 2)->nullable();
             $table->float('discount')->nullable();

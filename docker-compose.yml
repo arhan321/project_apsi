@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "33333:3306"
+      - "33335:3306"
     volumes:
       - ./database/data:/var/lib/mysql
       - ./conf.d:/etc/mysql/conf.d:ro
