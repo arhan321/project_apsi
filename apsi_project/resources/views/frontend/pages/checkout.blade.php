@@ -124,12 +124,12 @@
                                         <ul>
 										    <li class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Cart Subtotal<span>Rp.{{number_format(Helper::totalCartPrice(),2)}}</span></li>
                                             <li class="shipping">
-                                                Shipping Cost
+                                                jasa pengiriman
                                                 @if(count(Helper::shipping())>0 && Helper::cartCount()>0)
                                                     <select name="shipping" class="nice-select">
-                                                        <option value="">Select your address</option>
+                                                        <option value="">pilih kurir</option>
                                                         @foreach(Helper::shipping() as $shipping)
-                                                        <option value="{{$shipping->id}}" class="shippingOption" data-price="{{$shipping->price}}">{{$shipping->type}}: ${{$shipping->price}}</option>
+                                                        <option value="{{$shipping->id}}" class="shippingOption" data-price="{{$shipping->price}}">{{$shipping->type}}: Rp. {{ number_format($shipping->price, 0, ',', '.') }}</option>
                                                         @endforeach
                                                     </select>
                                                 @else 
@@ -326,16 +326,31 @@
 		}
 	</script>
 	<script>
-		$(document).ready(function(){
-			$('.shipping select[name=shipping]').change(function(){
-				let cost = parseFloat( $(this).find('option:selected').data('price') ) || 0;
-				let subtotal = parseFloat( $('.order_subtotal').data('price') ); 
-				let coupon = parseFloat( $('.coupon_price').data('price') ) || 0; 
-				// alert(coupon);
-				$('#order_total_price span').text('$'+(subtotal + cost-coupon).toFixed(2));
-			});
+	$(document).ready(function(){
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.toString(),
+            split = number_string.split('.'),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-		});
+        if (ribuan) {
+            var separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix === undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+
+    $('.shipping select[name=shipping]').change(function(){
+        let cost = parseFloat($(this).find('option:selected').data('price')) || 0;
+        let subtotal = parseFloat($('.order_subtotal').data('price'));
+        let coupon = parseFloat($('.coupon_price').data('price')) || 0;
+        let total = (subtotal + cost - coupon).toFixed(2);
+        $('#order_total_price span').text(formatRupiah(total, 'Rp.'));
+    });
+});
 
 	</script>
     @if(isset($snapToken))

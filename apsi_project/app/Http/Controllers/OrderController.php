@@ -22,8 +22,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders=Order::orderBy('id','DESC')->paginate(10);
-        return view('backend.order.index')->with('orders',$orders);
+        $orders = Order::with('shipping')->orderBy('id', 'DESC')->paginate(10);
+        return view('backend.order.index')->with('orders', $orders);
     }
 
     /**
@@ -250,29 +250,21 @@ class OrderController extends Controller
         return $pdf->download($file_name);
     }
     // Income chart
-    public function incomeChart(Request $request){
-        $year=\Carbon\Carbon::now()->year;
-        // dd($year);
-        $items=Order::with(['cart_info'])->whereYear('created_at',$year)->where('status','delivered')->get()
-            ->groupBy(function($d){
-                return \Carbon\Carbon::parse($d->created_at)->format('m');
-            });
-            // dd($items);
-        $result=[];
-        foreach($items as $month=>$item_collections){
-            foreach($item_collections as $item){
-                $amount=$item->cart_info->sum('amount');
-                // dd($amount);
-                $m=intval($month);
-                // return $m;
-                isset($result[$m]) ? $result[$m] += $amount :$result[$m]=$amount;
-            }
+    public function getIncomeData()
+    {
+        // Ambil data pendapatan per bulan
+        $orders = Order::selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, SUM(total_amount) as total')
+            ->groupBy('month', 'year')
+            ->orderBy('year', 'asc')
+            ->orderBy('month', 'asc')
+            ->get();
+
+        // Format data untuk chart
+        $data = [];
+        foreach ($orders as $order) {
+            $data[$order->year . '-' . $order->month] = $order->total;
         }
-        $data=[];
-        for($i=1; $i <=12; $i++){
-            $monthName=date('F', mktime(0,0,0,$i,1));
-            $data[$monthName] = (!empty($result[$i]))? number_format((float)($result[$i]), 2, '.', '') : 0.0;
-        }
-        return $data;
+
+        return response()->json($data);
     }
 }

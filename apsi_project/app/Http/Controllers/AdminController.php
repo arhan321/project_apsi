@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Settings;
-use App\User;
-use App\Rules\MatchOldPassword;
 use Hash;
+use App\User;
 use Carbon\Carbon;
-use Spatie\Activitylog\Models\Activity;
-use Illuminate\Support\Facades\Artisan;
+use App\Models\Settings;
+use Illuminate\Http\Request;
+use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Artisan;
+use Spatie\Activitylog\Models\Activity;
 class AdminController extends Controller
 {
     public function index(){
@@ -78,9 +78,11 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
-    public function changePassword(){
+    public function changePassword()
+    {
         return view('backend.layouts.changePassword');
     }
+
     public function changPasswordStore(Request $request)
     {
         $request->validate([
@@ -91,7 +93,7 @@ class AdminController extends Controller
 
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
 
-        return redirect()->route('admin')->with('success','Password successfully changed');
+        return redirect()->route('admin')->with('success', 'Password successfully changed');
     }
 
     // Pie chart

@@ -19,7 +19,7 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
+              <th>Nama Kurir</th>
               <th>Price</th>
               <th>Status</th>
               <th>Action</th>
@@ -28,7 +28,7 @@
           <tfoot>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
+              <th>Nama Kurir</th>
               <th>Price</th>
               <th>Status</th>
               <th>Action</th>
@@ -39,7 +39,7 @@
                 <tr>
                     <td>{{$shipping->id}}</td>
                     <td>{{$shipping->type}}</td>
-                    <td>${{$shipping->price}}</td>
+                    <td>Rp. {{ number_format($shipping->price, 0, ',', '.') }} /-</td>
                     <td>
                         @if($shipping->status=='active')
                             <span class="badge badge-success">{{$shipping->status}}</span>

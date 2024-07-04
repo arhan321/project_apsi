@@ -127,7 +127,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::resource('/post', 'PostController');
     Route::resource('/message', 'MessageController');
     Route::get('/message/five', [MessageController::class, 'messageFive'])->name('messages.five');
-
+    Route::get('/product/order/income', [OrderController::class, 'getIncomeData'])->name('product.order.income');
     Route::resource('/order', 'OrderController');
     Route::resource('/shipping', 'ShippingController');
     Route::resource('/coupon', 'CouponController');
@@ -137,7 +137,9 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('admin.notification');
     Route::get('/notifications', [NotificationController::class, 'index'])->name('all.notification');
     Route::delete('/notification/{id}', [NotificationController::class, 'delete'])->name('notification.delete');
+    // Rute untuk menampilkan formulir perubahan password
     Route::get('change-password', [AdminController::class, 'changePassword'])->name('change.password.form');
+    // Rute untuk mengirimkan perubahan password
     Route::post('change-password', [AdminController::class, 'changPasswordStore'])->name('change.password');
 });
 
@@ -158,9 +160,10 @@ Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
     Route::get('user-post/comment/edit/{id}', [HomeController::class, 'userCommentEdit'])->name('user.post-comment.edit');
     Route::patch('user-post/comment/udpate/{id}', [HomeController::class, 'userCommentUpdate'])->name('user.post-comment.update');
 
+    // Route::get('/passwordreset', [HomeController::class, 'changepassword'])->name('user.layouts.userPasswordChange');
     Route::get('change-password', [HomeController::class, 'changePassword'])->name('user.change.password.form');
     Route::post('change-password', [HomeController::class, 'changPasswordStore'])->name('change.password');
-});
+}); 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     Lfm::routes();

@@ -18,29 +18,25 @@ class GoogleSsoController extends Controller
     {
         $googleUser = Socialite::driver('google')->stateless()->user();
 
-        // Find or create the user
-        $user = User::firstOrNew(
-            [
-                'email' => $googleUser->getEmail()
-            ],
-            [
-                'provider' => 'google',
-                'provider_id' => $googleUser->getId()
-            ]
-        );
+        // Check if the user exists
+        $user = User::where('email', $googleUser->getEmail())->first();
 
-        // Update user details
-        $user->name = $googleUser->getName();
-        $user->photo = $googleUser->getAvatar();
-        $user->email_verified_at = now();
-        $user->role = 'admin'; // Set the role to admin
-        $user->status = 'active';
-        $user->save();
+        if ($user) {
+            // Update user details
+            $user->name = $googleUser->getName();
+            $user->photo = $googleUser->getAvatar();
+            $user->email_verified_at = now();
+            $user->status = 'active';
+            $user->save();
 
-        // Log the user in
-        Auth::login($user, true);
+            // Log the user in
+            Auth::login($user, true);
 
-        // Redirect to admin dashboard
-        return redirect('/admin');
+            // Redirect to user dashboard
+            return redirect('/admin'); // Adjust the redirection as needed
+        } else {
+            // Redirect to login page with an error
+            return redirect('/login')->withErrors(['email' => 'Email not registered. Please contact support.']);
+        }
     }
 }

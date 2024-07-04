@@ -22,7 +22,8 @@
               <th>Name</th>
               <th>Email</th>
               <th>Quantity</th>
-              <th>Charge</th>
+              <th>Ongkir</th>
+              <th>jenis kurir</th>
               <th>Total Amount</th>
               <th>Status</th>
               <th>Action</th>
@@ -35,7 +36,8 @@
               <th>Name</th>
               <th>Email</th>
               <th>Quantity</th>
-              <th>Charge</th>
+              <th>Ongkir</th>
+              <th>jenis kurir</th>
               <th>Total Amount</th>
               <th>Status</th>
               <th>Action</th>
@@ -53,6 +55,7 @@
                     <td>{{$order->email}}</td>
                     <td>{{$order->quantity}}</td>
                     <td>@foreach($shipping_charge as $data) Rp. {{number_format($data,2)}} @endforeach</td>
+                    <td>{{ optional($order->shipping)->type }}</td>
                     <td>Rp.{{number_format($order->total_amount,2)}}</td>
                     <td>
                         @if($order->status=='new')

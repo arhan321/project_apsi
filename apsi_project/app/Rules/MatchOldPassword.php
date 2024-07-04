@@ -2,8 +2,8 @@
 
 namespace App\Rules;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Validation\Rule;
-use Hash;
 class MatchOldPassword implements Rule
 {
     /**
@@ -25,16 +25,11 @@ class MatchOldPassword implements Rule
      */
     public function passes($attribute, $value)
     {
-        return Hash::check($value,auth()->user()->password);
+        return Hash::check($value, auth()->user()->password);
     }
 
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
     public function message()
     {
-        return 'Current password must match with old password';
+        return 'Current password does not match.';
     }
 }
