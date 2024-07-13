@@ -52,11 +52,21 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
-
+   
     // Order
     public function orderIndex(){
-        $orders=Order::orderBy('id','DESC')->where('user_id',auth()->user()->id)->paginate(10);
-        return view('user.order.index')->with('orders',$orders);
+        $orders = Order::with('shipping')->orderBy('id', 'DESC')->where('user_id', auth()->user()->id)->paginate(10);
+        $shipping_charge = [];
+    
+        foreach ($orders as $order) {
+            if ($order->shipping) {
+                $shipping_charge[$order->id] = $order->shipping->charge;
+            } else {
+                $shipping_charge[$order->id] = 0; // Default charge jika shipping tidak ada
+            }
+        }
+    
+        return view('user.order.index', compact('orders', 'shipping_charge'));
     }
     public function userOrderDelete($id)
     {

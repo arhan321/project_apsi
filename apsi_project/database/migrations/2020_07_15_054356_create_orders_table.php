@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateOrdersTable extends Migration
 {
@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->integer('quantity');
             $table->enum('payment_method',['cod','paypal'])->default('cod');
             $table->enum('payment_status',['paid','unpaid'])->default('unpaid');
-            $table->enum('status',['new','process','delivered','cancel'])->default('new');
+            $table->enum('status',['new','process','delivered','cancel','sent'])->default('new');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
             $table->foreign('shipping_id')->references('id')->on('shippings')->onDelete('SET NULL');
             $table->string('first_name');

@@ -22,9 +22,11 @@
               <th>Name</th>
               <th>Email</th>
               <th>Quantity</th>
-              <th>Charge</th>
+              <th>Ongkir</th>
+              <th>jenis kurir</th>
               <th>Total Amount</th>
-              <th>Status</th>
+              <th>Status kirim</th>
+              <th>payment status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -35,34 +37,40 @@
               <th>Name</th>
               <th>Email</th>
               <th>Quantity</th>
-              <th>Charge</th>
+              <th>Ongkir</th>
+              <th>jenis kurir</th>
               <th>Total Amount</th>
-              <th>Status</th>
+              <th>Status kirim</th>
+              <th>payment status</th>
               <th>Action</th>
               </tr>
           </tfoot>
           <tbody>
             @foreach($orders as $order)
                 <tr>
-                    <td>{{$order->id}}</td>
-                    <td>{{$order->order_number}}</td>
-                    <td>{{$order->first_name}} {{$order->last_name}}</td>
-                    <td>{{$order->email}}</td>
-                    <td>{{$order->quantity}}</td>
-                    <td>${{$order->shipping->price}}</td>
-                    <td>${{number_format($order->total_amount,2)}}</td>
-                    <td>
-                        @if($order->status=='new')
-                          <span class="badge badge-primary">{{$order->status}}</span>
-                        @elseif($order->status=='process')
-                          <span class="badge badge-warning">{{$order->status}}</span>
-                        @elseif($order->status=='delivered')
-                          <span class="badge badge-success">{{$order->status}}</span>
-                        @else
-                          <span class="badge badge-danger">{{$order->status}}</span>
-                        @endif
-                    </td>
-                    <td>
+                  <td>{{$order->id}}</td>
+                  <td>{{$order->order_number}}</td>
+                  <td>{{$order->first_name}} {{$order->last_name}}</td>
+                  <td>{{$order->email}}</td>
+                  <td>{{$order->quantity}}</td>
+                  <td>@foreach($shipping_charge as $data) Rp. {{number_format($data,2)}} @endforeach</td>
+                  <td>{{ optional($order->shipping)->type }}</td>
+                  <td>Rp.{{number_format($order->total_amount,2)}}</td>
+                  <td>
+                    @if($order->status=='new')
+                        <span class="badge badge-primary">{{$order->status}}</span>
+                    @elseif($order->status=='process')
+                        <span class="badge badge-warning">{{$order->status}}</span>
+                    @elseif($order->status=='delivered')
+                        <span class="badge badge-info">{{$order->status}}</span>
+                    @elseif($order->status=='sent')
+                        <span class="badge badge-success">{{$order->status}}</span>
+                    @else
+                        <span class="badge badge-danger">{{$order->status}}</span>
+                    @endif
+                  </td>
+                  <td>{{ $order->payment_status }}</td>
+                  <td>
                         <a href="{{route('user.order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
                         <form method="POST" action="{{route('user.order.delete',[$order->id])}}">
                           @csrf

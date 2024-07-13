@@ -16,7 +16,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Quantity</th>
-            <th>Charge</th>
+            <th>Ongkir</th>
             <th>Total Amount</th>
             <th>Status</th>
             <th>Action</th>
@@ -29,18 +29,20 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-            <td>${{$order->shipping->price}}</td>
-            <td>${{number_format($order->total_amount,2)}}</td>
+            <td>Rp.{{$order->shipping->price}}</td>
+            <td>Rp.{{number_format($order->total_amount,2)}}</td>
             <td>
-                @if($order->status=='new')
-                  <span class="badge badge-primary">{{$order->status}}</span>
-                @elseif($order->status=='process')
-                  <span class="badge badge-warning">{{$order->status}}</span>
-                @elseif($order->status=='delivered')
-                  <span class="badge badge-success">{{$order->status}}</span>
-                @else
-                  <span class="badge badge-danger">{{$order->status}}</span>
-                @endif
+              @if($order->status=='new')
+              <span class="badge badge-primary">{{$order->status}}</span>
+          @elseif($order->status=='process')
+              <span class="badge badge-warning">{{$order->status}}</span>
+          @elseif($order->status=='delivered')
+              <span class="badge badge-info">{{$order->status}}</span>
+          @elseif($order->status=='sent')
+              <span class="badge badge-success">{{$order->status}}</span>
+          @else
+              <span class="badge badge-danger">{{$order->status}}</span>
+          @endif
             </td>
             <td>
                 <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
@@ -79,16 +81,16 @@
                         <td> : {{$order->status}}</td>
                     </tr>
                     <tr>
-                        <td>Shipping Charge</td>
-                        <td> : $ {{$order->shipping->price}}</td>
+                        <td>Ongkir</td>
+                        <td> : Rp. {{$order->shipping->price}}</td>
                     </tr>
                     <tr>
                       <td>Coupon</td>
-                      <td> : $ {{number_format($order->coupon,2)}}</td>
+                      <td> : Rp. {{number_format($order->coupon,2)}}</td>
                     </tr>
                     <tr>
                         <td>Total Amount</td>
-                        <td> : $ {{number_format($order->total_amount,2)}}</td>
+                        <td> : Rp. {{number_format($order->total_amount,2)}}</td>
                     </tr>
                     <tr>
                         <td>Payment Method</td>

@@ -25,7 +25,8 @@
               <th>Ongkir</th>
               <th>jenis kurir</th>
               <th>Total Amount</th>
-              <th>Status</th>
+              <th>Status kirim</th>
+              <th>payment status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -39,7 +40,8 @@
               <th>Ongkir</th>
               <th>jenis kurir</th>
               <th>Total Amount</th>
-              <th>Status</th>
+              <th>Status kirim</th>
+              <th>payment status</th>
               <th>Action</th>
               </tr>
           </tfoot>
@@ -58,16 +60,19 @@
                     <td>{{ optional($order->shipping)->type }}</td>
                     <td>Rp.{{number_format($order->total_amount,2)}}</td>
                     <td>
-                        @if($order->status=='new')
+                      @if($order->status=='new')
                           <span class="badge badge-primary">{{$order->status}}</span>
-                        @elseif($order->status=='process')
+                      @elseif($order->status=='process')
                           <span class="badge badge-warning">{{$order->status}}</span>
-                        @elseif($order->status=='delivered')
+                      @elseif($order->status=='delivered')
+                          <span class="badge badge-info">{{$order->status}}</span>
+                      @elseif($order->status=='sent')
                           <span class="badge badge-success">{{$order->status}}</span>
-                        @else
+                      @else
                           <span class="badge badge-danger">{{$order->status}}</span>
-                        @endif
+                      @endif
                     </td>
+                    <td>{{ $order->payment_status }}</td>
                     <td>
                         <a href="{{route('order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
                         <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>

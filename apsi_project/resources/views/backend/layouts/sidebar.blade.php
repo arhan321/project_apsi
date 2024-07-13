@@ -134,7 +134,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Posts
+      Posts Blog
     </div>
 
     <!-- Posts -->

@@ -156,27 +156,33 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $order=Order::find($id);
-        $this->validate($request,[
-            'status'=>'required|in:new,process,delivered,cancel'
+        $order = Order::find($id);
+        $this->validate($request, [
+            'status' => 'required|in:new,process,delivered,cancel,sent',
+            'payment_status' => 'required|in:paid,unpaid'
         ]);
-        $data=$request->all();
+    
+        $data = $request->all();
         // return $request->status;
-        if($request->status=='delivered'){
-            foreach($order->cart as $cart){
-                $product=$cart->product;
+        if ($request->status == 'delivered') {
+            foreach ($order->cart as $cart) {
+                $product = $cart->product;
                 // return $product;
-                $product->stock -=$cart->quantity;
+                $product->stock -= $cart->quantity;
                 $product->save();
             }
         }
-        $status=$order->fill($data)->save();
-        if($status){
-            request()->session()->flash('success','Successfully updated order');
+    
+        $order->status = $data['status'];
+        $order->payment_status = $data['payment_status'];
+        $status = $order->save();
+    
+        if ($status) {
+            request()->session()->flash('success', 'Successfully updated order');
+        } else {
+            request()->session()->flash('error', 'Error while updating order');
         }
-        else{
-            request()->session()->flash('error','Error while updating order');
-        }
+    
         return redirect()->route('order.index');
     }
 
